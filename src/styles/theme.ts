@@ -6,6 +6,7 @@ export const Theme = {
         normal: 400,
         bold: 600,        
         sizes: {
+            zsmall: "12px",
             xxxsmall: "16px",
             xxsmall: "18px",
             xsmall: "22px",
@@ -15,7 +16,7 @@ export const Theme = {
         },
     },
     box: {
-        shadow: "0 1px 1px rgba(0, 0, 0, 0.1)",
+        shadow: "0 2px 2px 2px rgba(0, 0, 0, 0.1)",
     },
     border: {
         radius: "15px",

@@ -13,13 +13,13 @@ interface ListaUlProps {
 }
 
 const Nav = styled.nav`
-    width:  1440px;
+    width:  1400px;
     height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    @media (max-width: 1440px){
+    @media (max-width: 1400px){
         width: 100%;
     }
     @media (max-width: 700px){
