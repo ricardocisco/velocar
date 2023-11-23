@@ -10,7 +10,6 @@ export const HeroPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
   @media (max-width: 1400px) {
     width: 100%;
   }
@@ -21,6 +20,7 @@ export const HeroPage = styled.div`
 
 export const Section = styled.section`
   display: flex;
+  padding: 10px;
 `;
 
 export const SectionImg = styled.section`

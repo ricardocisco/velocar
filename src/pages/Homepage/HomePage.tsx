@@ -11,6 +11,7 @@ import Brands from "../../components/Brands/Brands";
 import Calendar from "../../images/image_home/calendar.png";
 import  Car from '../../images/image_home/car.png';
 import Loc from "../../images/image_home/location.png";
+import Footer from "../../components/Footer/Footer";
 
 export default function HomePage() {
   return (
@@ -93,6 +94,7 @@ export default function HomePage() {
           </ContainerHow>
         </Section>
       </HeroPage>
+      <Footer />
     </div>
   );
 }
