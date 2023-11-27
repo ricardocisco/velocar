@@ -79,7 +79,7 @@ export default function Navbar () {
                 <LinkA to="/">Coloque para alugar</LinkA>
             </Lista>
             <Lista>
-                <LinkA to="/">Aluguel</LinkA>
+                <LinkA to="/Catalogo">Aluguel</LinkA>
             </Lista>
             <Lista>
                 <LinkA to="/">Compra</LinkA>

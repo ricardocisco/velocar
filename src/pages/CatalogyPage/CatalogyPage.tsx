@@ -1,11 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import Searchbar from "../../components/Navbar/Searchbar";
 
 export default function CatalogyPage() {
   return (
     <div>
-        <h1>CatalogyPage</h1>
-        <Link to="/">tela pagamento</Link>
+      <Searchbar />
     </div>
-  )
+  );
 }
