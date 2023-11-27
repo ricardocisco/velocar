@@ -18,9 +18,15 @@ const FooterBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    @media (max-width: 1440px) {
+            width: 100%;
+            padding: 10px;
+    };
     & h1 {
         color: ${Theme.colors.cor_branca};
+        @media (max-width: 780px) {
+            font-size: 16px;
+        };
     }
 `
 
@@ -33,6 +39,9 @@ const LinkSocial = styled(Link)`
     border-radius: 60px;
     padding: 5px;
     margin: 4px;
+    @media (max-width: 780px){
+        font-size: ${Theme.font.sizes.xsmall};
+    }
 `
 const Social = styled.div`
     display: flex;

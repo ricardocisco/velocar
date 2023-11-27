@@ -23,6 +23,22 @@ export const Section = styled.section`
   padding: 10px;
 `;
 
+export const WhyChoseBox = styled.section`
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  justify-content: space-evenly;
+  @media (max-width: 800px) {
+    display: block;
+  };
+`
+
+export const WhyChoseImg = styled.div`
+    & img {
+      width: 100%;
+    }
+`
+
 export const SectionImg = styled.section`
   width: 50%;
   @media (max-width: 700px) {
@@ -107,6 +123,9 @@ export const BoxHow = styled.div`
   }
   & p {
     font-size: ${Theme.font.sizes.small};
+    @media (max-width: 700px){
+      font-size: ${Theme.font.sizes.xxxsmall};
+  };
   }
 `;
 
@@ -131,15 +150,26 @@ export const Image = styled.img`
   height: 80px;
   margin: 10px;
   padding: 15px;
+  @media (max-width: 700px){
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  };
 `;
 export const Title = styled.h1`
   margin: 5px;
   font-size: ${Theme.font.sizes.xxxsmall};
+  @media (max-width: 700px){
+    font-size: ${Theme.font.sizes.xxxsmall};
+  };
 `;
 
 export const Description = styled.h1`
   margin: 5px;
   font-size: ${Theme.font.sizes.xxsmall};
+  @media (max-width: 700px){
+    font-size: ${Theme.font.sizes.zsmall};
+  };
 `;
 
 type ContentProps = {
@@ -158,3 +188,56 @@ export const ContentHow: React.FC<ContentProps> = ({ backgroundColor, imageSrc, 
     <Description>{description}</Description>
   </div>
 );
+
+export const Card = styled.div`
+  width: 430px;
+  @media (max-width: 800px) {
+    width: unset;
+  };
+  & h1 {
+    font-size: ${Theme.font.sizes.xxxsmall};
+    font-weight: ${Theme.font.normal};
+    color: ${Theme.colors.cor_cinza};
+    text-transform: uppercase;
+    @media (max-width: 800px) {
+      font-size: ${Theme.font.sizes.xxsmall};
+  };
+  }
+  & p {
+    font-size: 30px;
+    @media (max-width: 800px) {
+      font-size: ${Theme.font.sizes.xxsmall};
+    }
+  }
+`
+
+export const CardHow = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  & img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin-right: 10px;
+    box-shadow: ${Theme.box.shadow};
+    border-radius: ${Theme.border.radius};
+  }
+  & div {  
+    & h2 {
+      font-size: 18px;
+      letter-spacing: 1%;
+      font-weight: 400;
+      color: ${Theme.colors.cor_cinza};
+    }
+    & p {
+      font-size: 14px;
+      letter-spacing: 1%;
+      color: ${Theme.colors.cor_cinza};
+    }
+  }
+`
+
+export const CardBox = styled.div`
+  
+`
