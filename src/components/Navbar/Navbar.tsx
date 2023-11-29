@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import Logo from '../../images/image_catalogo/logo.png';
-import { Theme } from '../../styles/theme';
-import {FaBars} from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
-
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import Logo from '../../images/image_catalogo/logo.png'
+import { Theme } from '../../styles/theme'
+import { FaBars } from 'react-icons/fa'
+import { AiOutlineClose } from 'react-icons/ai'
 
 interface ListaUlProps {
-    children: React.ReactNode;
-    active: boolean;
+  children: React.ReactNode
+  active: boolean
 }
 
 const Nav = styled.nav`
@@ -30,7 +29,7 @@ const ListaUl: React.FC<ListaUlProps> = styled.ul`
     display: flex;
     align-items: center;
     @media (max-width: 700px){
-        display: ${props => props.active ? "block" : "none" };
+        display: ${props => props.active ? 'block' : 'none'};
         flex-direction: column;
     }
 `
@@ -63,37 +62,36 @@ const Icon = styled.i`
 `
 
 export default function Navbar () {
-
-    const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   return (
     <Nav>
-        <LinkA to="/">
-            <ImgLogo src={Logo} alt='Logo velocar'/>
-        </LinkA>
-        <Icon onClick={() => setActive(!active)}>
-            { !active ? <FaBars/> : <AiOutlineClose/> }
-        </Icon>
-        <ListaUl active={active}>
-            <Lista>
-                <LinkA to="/">Coloque para alugar</LinkA>
-            </Lista>
-            <Lista>
-                <LinkA to="/Catalogo">Aluguel</LinkA>
-            </Lista>
-            <Lista>
-                <LinkA to="/">Compra</LinkA>
-            </Lista>
-            <Lista>
-                <LinkA to="/">Como Funciona</LinkA>
-            </Lista>
-            <Lista>
-                <LinkA to="/">Sobre nós</LinkA>
-            </Lista>
-            <Lista>
-                <LinkA to="/">Login</LinkA>
-            </Lista>
-        </ListaUl>
+      <LinkA to="/">
+        <ImgLogo src={Logo} alt='Logo velocar'/>
+      </LinkA>
+      <Icon onClick={() => { setActive(!active) }}>
+        { !active ? <FaBars/> : <AiOutlineClose/> }
+      </Icon>
+      <ListaUl active={active}>
+        <Lista>
+          <LinkA to="/">Coloque para alugar</LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/Catalogo">Aluguel</LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">Compra</LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">Como Funciona</LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">Sobre nós</LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">Login</LinkA>
+        </Lista>
+      </ListaUl>
     </Nav>
   )
 }
