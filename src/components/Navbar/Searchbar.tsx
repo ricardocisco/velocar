@@ -4,9 +4,8 @@ import styled from "styled-components";
 import Logo from "../../images/image_catalogo/logo.png";
 import { Theme } from "../../styles/theme";
 import { FaBars, FaHeart, FaBell } from "react-icons/fa";
+import { IoIosSettings } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
-import { IoMdSearch } from "react-icons/io";
-import { VscSettings } from "react-icons/vsc";
 
 interface ListaUlProps {
   children: React.ReactNode;
@@ -57,15 +56,29 @@ const Lista = styled.li`
 `;
 
 const LinkA = styled(Link)`
+  display: flex;
+  align-items: center;
   font-size: ${Theme.font.sizes.xxxsmall};
   font-weight: ${Theme.font.bold};
   text-decoration: none;
   cursor: pointer;
+  & span {
+    display: none;
+    margin: 5px;
+    @media (max-width: 780px){
+      display: block;
+    }
+  }
 `;
 
 const ImgLogo = styled.img`
   width: 120px;
 `;
+
+const IconNav = styled.i`
+  font-size: ${Theme.font.sizes.xsmall};
+`
+
 const Icon = styled.i`
   display: none;
   @media (max-width: 700px) {
@@ -93,21 +106,34 @@ export default function Navbar() {
       >
         {!active ? <FaBars /> : <AiOutlineClose />}
       </Icon>
-      <SearchBox>
-        <Icon>
-          <IoMdSearch></IoMdSearch>
-        </Icon>
-        <Search placeholder="Pesquisar" />
-        <Icon>
-          <VscSettings></VscSettings>
-        </Icon>
-      </SearchBox>
       <ListaUl active={active}>
         <Lista>
-          <LinkA to="/">Dashboard</LinkA>
+          <SearchBox>
+            <Search placeholder="Pesquisar" />
+          </SearchBox>
         </Lista>
         <Lista>
-          <LinkA to=""></LinkA>
+          <LinkA to="/">
+            Dashboard
+          </LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">
+            <IconNav><FaHeart /></IconNav>
+            <span>Curtidos</span>
+          </LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">
+            <IconNav><FaBell /></IconNav>
+            <span>Notificações</span>
+          </LinkA>
+        </Lista>
+        <Lista>
+          <LinkA to="/">
+            <IconNav><IoIosSettings /></IconNav>
+            <span>Configurações</span>
+          </LinkA>
         </Lista>
       </ListaUl>
     </Nav>
