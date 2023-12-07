@@ -9,6 +9,7 @@ import Button from '../Button/Button';
 
 
 const DivBox = styled.div`
+  
 `
 
 const CarList = styled.ul`
@@ -22,7 +23,7 @@ const List = styled.div`
   justify-content: space-around;
   width: 305px;
   height: 280px;
-  padding: 10px;
+  padding: 15px;
   margin: 15px;
   box-shadow: ${Theme.box.shadow};
   border-radius: 5px;
@@ -46,6 +47,12 @@ const BoxFav = styled.div`
 `
 
 const ImgCar = styled.img`
+`
+
+const BoxBt = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 
@@ -73,9 +80,10 @@ export default function ListCar() {
             </BoxFav>
           </BoxList>
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
-          <div>
+          <BoxBt>
             <p>R${carro.preco.toFixed(2)}/dia</p>
-          </div>
+            <Button backgroundColor='cor_azul'>Alugar</Button>
+          </BoxBt>
         </List>)}
       </CarList>
     </DivBox>
