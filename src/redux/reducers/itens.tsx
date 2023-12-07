@@ -6,6 +6,7 @@ import RollsRoyce from '../../images/image_catalogo/car3.png'
 import Pajero from '../../images/image_catalogo/car4.png'
 import Nivus from '../../images/image_catalogo/car5.png'
 import Cronos from '../../images/image_catalogo/car7.png'
+import MGZS from '../../images/image_catalogo/car8.png'
 
 interface carrosProps {
   titulo: string
@@ -17,48 +18,62 @@ interface carrosProps {
 }
 
 const INITIAL_STATE: carrosProps[] = [{
-  titulo: 'NISSAN-GTR',
-  foto: NissanGTR,
+  titulo: 'Nissan-GTR',
+  foto: Pajero,
   favorito: false,
   preco: 99.00,
-  id: '1',
-  categoria: 'sport',
+  id: uuid(),
+  categoria: 'SPORT',
 }, {
   titulo: 'Koenigsegg',
-  foto: Esportivo,
+  foto: Nivus,
   favorito: false,
-  preco: 80.00,
-  id: '2',
-  categoria: 'sport',
+  preco: 120.00,
+  id: uuid(),
+  categoria: 'SPORT',
 }, {
   titulo: 'Rolls Royce',
-  foto: RollsRoyce,
+  foto: MGZS,
   favorito: false,
-  preco: 85.00,
-  id: '3',
-  categoria: 'sedan',
+  preco: 90.00,
+  id: uuid(),
+  categoria: 'SEDAN',
 }, {
   titulo: 'Pajero',
   foto: Pajero,
   favorito: false,
   preco: 75.00,
-  id: '4',
-  categoria: 'suv',
+  id: uuid(),
+  categoria: 'SUV',
 }, {
   titulo: 'Nivus',
   foto: Nivus,
   favorito: false,
   preco: 85.00,
-  id: '5',
-  categoria: 'suv',
+  id: uuid(),
+  categoria: 'SUV',
 }, {
   titulo: 'Cronos',
   foto: Cronos,
   favorito: false,
   preco: 85.00,
-  id: '6',
-  categoria: 'suv',
-}
+  id: uuid(),
+  categoria: 'Hatchback',
+}, {
+  titulo: 'CR-V',
+  foto: Cronos,
+  favorito: false,
+  preco: 85.00,
+  id: uuid(),
+  categoria: 'SUV',
+}, {
+  titulo: 'New MG ZS',
+  foto: MGZS,
+  favorito: false,
+  preco: 85.00,
+  id: uuid(),
+  categoria: 'Hatchback',
+},
 ]
 
 export const carrosSlice = createSlice({
