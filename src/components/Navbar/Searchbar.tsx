@@ -22,14 +22,14 @@ const Nav = styled.nav`
   @media (max-width: 1400px) {
     width: 100%;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 780px) {
     flex-direction: column;
   }
 `;
 const ListaUl: React.FC<ListaUlProps> = styled.ul`
   display: flex;
   align-items: center;
-  @media (max-width: 700px) {
+  @media (max-width: 780px) {
     display: ${(props) => (props.active ? "block" : "none")};
     flex-direction: column;
   }
@@ -81,7 +81,7 @@ const IconNav = styled.i`
 
 const Icon = styled.i`
   display: none;
-  @media (max-width: 700px) {
+  @media (max-width: 780px) {
     display: block;
     position: absolute;
     top: 20px;

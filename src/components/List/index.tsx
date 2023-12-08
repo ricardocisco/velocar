@@ -9,12 +9,12 @@ import Button from '../Button/Button';
 
 
 const DivBox = styled.div`
-  
 `
 
 const CarList = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 const List = styled.div`
@@ -43,6 +43,11 @@ const PBox = styled.p`
   color: ${Theme.colors.cor_cinza_200};
 `
 
+const PriceP = styled.p`
+  font-size: ${Theme.font.sizes.xxsmall};
+  font-weight: ${Theme.font.bold};
+`
+
 const BoxFav = styled.div`
 `
 
@@ -68,6 +73,7 @@ export default function ListCar() {
   return (
 
     <DivBox>
+      <p>Carros Populares</p>
       <CarList>
         {carros.map(carro => <List>
           <BoxList>
@@ -81,7 +87,7 @@ export default function ListCar() {
           </BoxList>
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
           <BoxBt>
-            <p>R${carro.preco.toFixed(2)}/dia</p>
+            <PriceP>R${carro.preco.toFixed(2)}/dia</PriceP>
             <Button backgroundColor='cor_azul'>Alugar</Button>
           </BoxBt>
         </List>)}
