@@ -1,8 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import NissanGTR from '../../images/image_catalogo/car2.png'
-import Esportivo from '../../images/image_catalogo/car1.png'
-import RollsRoyce from '../../images/image_catalogo/car3.png'
+import { createSlice } from '@reduxjs/toolkit';
 import Pajero from '../../images/image_catalogo/car4.png'
 import Nivus from '../../images/image_catalogo/car5.png'
 import Cronos from '../../images/image_catalogo/car7.png'
@@ -130,6 +127,7 @@ const INITIAL_STATE: carrosProps[] = [{
   id: uuid(),
   categoria: 'Hatchback',
 },
+
 ]
 
 export const carrosSlice = createSlice({

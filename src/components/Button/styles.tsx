@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Theme } from "../../styles/theme"
-import { ButtonProps} from './Button';
+import { ButtonProps } from './Button';
 
 type ContainerProps = Pick<ButtonProps, 'backgroundColor'>;
 
@@ -10,4 +10,5 @@ export const Container = styled.button<ContainerProps>`
     border-radius: ${Theme.border.radius};
     color: ${Theme.colors.cor_branca};
     padding: 0.6rem 2rem;
+    cursor: pointer;
 `

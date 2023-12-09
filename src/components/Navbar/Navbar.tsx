@@ -44,6 +44,9 @@ const LinkA = styled(Link)`
     font-weight: ${Theme.font.bold};
     text-decoration: none;
     cursor: pointer;
+    &:hover {
+      color: ${Theme.colors.cor_cinza};
+    }
 `
 
 const ImgLogo = styled.img`
@@ -61,26 +64,23 @@ const Icon = styled.i`
     }
 `
 
-export default function Navbar () {
+export default function Navbar() {
   const [active, setActive] = useState(false)
 
   return (
     <Nav>
       <LinkA to="/">
-        <ImgLogo src={Logo} alt='Logo velocar'/>
+        <ImgLogo src={Logo} alt='Logo velocar' />
       </LinkA>
       <Icon onClick={() => { setActive(!active) }}>
-        { !active ? <FaBars/> : <AiOutlineClose/> }
+        {!active ? <FaBars /> : <AiOutlineClose />}
       </Icon>
       <ListaUl active={active}>
         <Lista>
           <LinkA to="/">Coloque para alugar</LinkA>
         </Lista>
         <Lista>
-          <LinkA to="/Catalogo">Aluguel</LinkA>
-        </Lista>
-        <Lista>
-          <LinkA to="/">Compra</LinkA>
+          <LinkA to="/aluguel">Aluguel</LinkA>
         </Lista>
         <Lista>
           <LinkA to="/">Como Funciona</LinkA>
