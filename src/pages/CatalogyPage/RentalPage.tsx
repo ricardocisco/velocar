@@ -6,6 +6,7 @@ import { BgExp, BgRotate, Box, ImgSrc, Section, TitleBox } from './styles';
 import Button from '../../components/Button/Button';
 import Cronos from '../../images/image_catalogo/car7.png'
 import MGZS from '../../images/image_catalogo/car8.png'
+import Footer from '../../components/Footer/Footer';
 
 export default function CatalogyPage() {
   return (
@@ -36,6 +37,7 @@ export default function CatalogyPage() {
           <ListCar />
         </Section>
       </HeroPage>
+      <Footer />
     </div>
   )
 }

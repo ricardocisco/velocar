@@ -4,7 +4,7 @@ import { useCarros } from '../../redux/reducers/itens';
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from 'styled-components';
 import { Theme } from '../../styles/theme';
-import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 
 
@@ -60,6 +60,13 @@ const BoxBt = styled.div`
   justify-content: space-between;
 `
 
+const StyledLink = styled(Link)`
+  background-color: ${Theme.colors.cor_azul};
+  color: ${Theme.colors.cor_branca};
+  padding: 10px 20px;
+  border-radius: 10px;
+`
+
 
 export default function ListCar() {
 
@@ -88,7 +95,7 @@ export default function ListCar() {
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
           <BoxBt>
             <PriceP>R${carro.preco.toFixed(2)}/dia</PriceP>
-            <Button backgroundColor='cor_azul'>Alugar</Button>
+            <StyledLink to="/pagamento">Alugar</StyledLink>
           </BoxBt>
         </List>)}
       </CarList>

@@ -1,11 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Searchbar from '../../components/Navbar/Searchbar';
+import { Section } from '../Homepage/styles';
+import Form from '../../components/Form/Form';
 
 export default function PaymentPage() {
   return (
     <div>
-        <h1>Pagamento</h1>
-        <Link to="/">tela pagamento</Link>
+      <Searchbar />
+      <Section>
+        <Form />
+      </Section>
     </div>
   )
 }
