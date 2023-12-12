@@ -1,6 +1,6 @@
 import React from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { CardStyle, DivForm, FormBox, InputStyled, LabelStyled, Message, TitleBox, RadioInput } from '../../pages/PaymentPage/styles';
+import { useForm } from 'react-hook-form'
+import { CardStyle, DivForm, FormBox, InputStyled, LabelStyled, Message, TitleBox, RadioInput, DateBox, DateFormBox, Container } from '../../pages/PaymentPage/styles';
 import bandeiras from '../../images/image_catalogo/cartao.png';
 import nubank from '../../images/image_catalogo/nubank.png';
 import c6bank from '../../images/image_catalogo/c6bank.png';
@@ -22,7 +22,7 @@ export default function Form() {
   console.log(errors)
 
   return (
-    <div>
+    <Container>
       <form onSubmit={handleSubmit((data) => {
         console.log(data)
       })}>
@@ -54,8 +54,46 @@ export default function Form() {
         </DivForm>
         <DivForm>
           <TitleBox>
-            <h1>Método de Pagamento</h1>
+            <h1>Informações do Aluguel</h1>
             <p>Passo 2 de 4</p>
+          </TitleBox>
+          <TitleBox>
+            <h1>Check-in</h1>
+          </TitleBox>
+          <DateFormBox>
+            <DateBox>
+              <div><LabelStyled>Localização</LabelStyled>
+                <InputStyled type="text" placeholder='Digite Cidade/Bairro' />
+              </div>
+              <div><LabelStyled>Data</LabelStyled>
+                <InputStyled type='date' />
+              </div>
+              <div><LabelStyled>Horario</LabelStyled>
+                <InputStyled type='time' />
+              </div>
+            </DateBox>
+          </DateFormBox>
+          <TitleBox>
+            <h1>Check-out</h1>
+          </TitleBox>
+          <DateFormBox>
+            <DateBox>
+              <div><LabelStyled>Localização</LabelStyled>
+                <InputStyled type="text" placeholder='Digite Cidade/Bairro' />
+              </div>
+              <div><LabelStyled>Data</LabelStyled>
+                <InputStyled type='date' />
+              </div>
+              <div><LabelStyled>Horario</LabelStyled>
+                <InputStyled type='time' />
+              </div>
+            </DateBox>
+          </DateFormBox>
+        </DivForm>
+        <DivForm>
+          <TitleBox>
+            <h1>Método de Pagamento</h1>
+            <p>Passo 3 de 4</p>
           </TitleBox>
           <TitleBox>
             <h1>Cartão de Crédito</h1>
@@ -98,6 +136,6 @@ export default function Form() {
         </DivForm>
         <input type="submit" />
       </form>
-    </div>
+    </Container>
   )
 }
