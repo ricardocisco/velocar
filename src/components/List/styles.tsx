@@ -43,6 +43,7 @@ export const PriceP = styled.p`
 `
 
 export const BoxFav = styled.div`
+  cursor: pointer;
 `
 
 export const ImgCar = styled.img`

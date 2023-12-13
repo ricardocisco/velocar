@@ -134,13 +134,16 @@ export const carrosSlice = createSlice({
   name: 'carros',
   initialState: INITIAL_STATE as carrosProps[],
   reducers: {
-    viewCar: (state, action: PayloadAction<carrosProps>) => {
-      return [...state, action.payload];
+    viewCar: (state, { payload }: PayloadAction<carrosProps>) => {
+      return [...state, payload];
     },
+    toFavorito: (state, { payload }: PayloadAction<string>) => {
+      return state = state.map(st => st.id === payload ? { ...st, favorito: !st.favorito } : st)
+    }
   }
 })
 
-export const { viewCar } = carrosSlice.actions;
+export const { viewCar, toFavorito } = carrosSlice.actions;
 export default carrosSlice.reducer;
 
 // export const useCarros = () => {

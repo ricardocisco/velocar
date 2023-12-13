@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { viewCar } from '../../redux/reducers/itens';
+import { toFavorito, viewCar } from '../../redux/reducers/itens';
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { RootState } from '../../redux/store';
 import { BoxBt, BoxFav, BoxList, CarList, DivBox, ImgCar, List, PBox, PriceP, StyledLink, TBox } from './styles';
@@ -18,6 +18,7 @@ export const ListCar: React.FC = () => {
     dispatch(viewCar(carro));
   }
 
+
   return (
 
     <DivBox>
@@ -30,7 +31,10 @@ export const ListCar: React.FC = () => {
               <PBox>{carro.categoria}</PBox>
             </div>
             <BoxFav>
-              {carro.favorito ? <IoMdHeart {...IconProps} /> : <IoMdHeartEmpty {...IconProps} />}
+              {carro.favorito
+                ? <IoMdHeart {...IconProps} color='#ff0000' onClick={() => dispatch(toFavorito(carro.id))} />
+                : <IoMdHeartEmpty {...IconProps} onClick={() => dispatch(toFavorito(carro.id))} />
+              }
             </BoxFav>
           </BoxList>
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
