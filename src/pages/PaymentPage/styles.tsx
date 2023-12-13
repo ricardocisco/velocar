@@ -37,6 +37,9 @@ export const TitleBox = styled.div`
   margin: 10px;
   & h1 {
     font-size: ${Theme.font.sizes.xxsmall};
+    @media (max-width: 425px){
+      font-size: ${Theme.font.sizes.xxxsmall};
+    }
   }
   & p {
     font-size: ${Theme.font.sizes.zsmall};
@@ -81,6 +84,10 @@ export const LabelStyled = styled.label`
   color: ${Theme.font.sizes.xxsmall};
   margin-bottom: 10px;
   font-weight: ${Theme.font.bold};
+  @media (max-width: 425px){
+      font-size: ${Theme.font.sizes.zsmall};
+      margin-bottom: 15px;
+    }
 `
 
 export const Message = styled.p`
@@ -96,6 +103,9 @@ export const InputStyled = styled.input`
   border-radius: ${Theme.border.radius};
   color: ${Theme.colors.cor_texto};
   background-color: ${Theme.colors.cor_branca_300};
+  @media (max-width: 425px){
+    padding: 10px 30px;
+  }
 `
 
 export const CardStyle = styled.img`
@@ -116,56 +126,5 @@ export const RadioInput = styled.div`
     & input {
       
     }
-  }
-`
-
-/**Resumo */
-export const SummaryBox = styled.div`
-  
-`
-
-export const TitleSummary = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 10px;
-  & h1 {
-    font-size: ${Theme.font.sizes.xxsmall};
-  }
-  & p {
-    font-size: ${Theme.font.sizes.zsmall};
-    color: ${Theme.colors.cor_cinza_200};
-  }
-`
-
-export const ImageSummary = styled.div`
-  
-`
-
-export const TotalSummary = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 10px;
-  & p {
-    font-size: ${Theme.font.sizes.xxsmall};
-  }
-  & h1 {
-    font-size: ${Theme.font.sizes.zsmall};
-    color: ${Theme.colors.cor_cinza_200};
-  }
-`
-
-export const CupomSummary = styled.div`
-  display: flex;
-  background-color: ${Theme.colors.cor_branca_300};
-  border-radius: 15px;
-  & button {
-    border: none;
-    background-color: initial;
-    padding: 5px;
   }
 `

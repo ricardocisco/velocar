@@ -1,88 +1,29 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useCarros } from '../../redux/reducers/itens';
+import { viewCar } from '../../redux/reducers/itens';
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import styled from 'styled-components';
-import { Theme } from '../../styles/theme';
-import { Link } from 'react-router-dom';
+import { RootState } from '../../redux/store';
+import { BoxBt, BoxFav, BoxList, CarList, DivBox, ImgCar, List, PBox, PriceP, StyledLink, TBox } from './styles';
 
 
-
-const DivBox = styled.div`
-`
-
-const CarList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`
-
-const List = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 305px;
-  height: 280px;
-  padding: 15px;
-  margin: 15px;
-  box-shadow: ${Theme.box.shadow};
-  border-radius: 5px;
-`
-const BoxList = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const TBox = styled.h1`
-  font-size: ${Theme.font.sizes.xsmall};
-`
-
-const PBox = styled.p`
-  font-size: ${Theme.font.sizes.xxxsmall};
-  color: ${Theme.colors.cor_cinza_200};
-`
-
-const PriceP = styled.p`
-  font-size: ${Theme.font.sizes.xxsmall};
-  font-weight: ${Theme.font.bold};
-`
-
-const BoxFav = styled.div`
-`
-
-const ImgCar = styled.img`
-`
-
-const BoxBt = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-
-const StyledLink = styled(Link)`
-  background-color: ${Theme.colors.cor_azul};
-  color: ${Theme.colors.cor_branca};
-  padding: 10px 20px;
-  border-radius: 10px;
-`
-
-
-export default function ListCar() {
+export const ListCar: React.FC = () => {
 
   const IconProps = {
     size: '22',
   }
-
   const dispatch = useDispatch();
-  const carros = useSelector(useCarros)
+  const carros = useSelector((state: RootState) => state.carros);
+
+  const handleViewCar = (carro: any) => {
+    dispatch(viewCar(carro));
+  }
 
   return (
 
     <DivBox>
       <p>Carros Populares</p>
       <CarList>
-        {carros.map(carro => <List>
+        {carros.map(carro => <List key={carro.id}>
           <BoxList>
             <div>
               <TBox>{carro.titulo}</TBox>
@@ -95,10 +36,12 @@ export default function ListCar() {
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
           <BoxBt>
             <PriceP>R${carro.preco.toFixed(2)}/dia</PriceP>
-            <StyledLink to="/pagamento">Alugar</StyledLink>
+            <StyledLink to={`/pagamento/${carro.id}`} onClick={() => handleViewCar(carro)}>Alugar</StyledLink>
           </BoxBt>
         </List>)}
       </CarList>
     </DivBox>
   )
 }
+
+export default ListCar

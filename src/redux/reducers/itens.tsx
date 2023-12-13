@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import Pajero from '../../images/image_catalogo/car4.png'
 import Nivus from '../../images/image_catalogo/car5.png'
 import Cronos from '../../images/image_catalogo/car7.png'
@@ -132,13 +132,17 @@ const INITIAL_STATE: carrosProps[] = [{
 
 export const carrosSlice = createSlice({
   name: 'carros',
-  initialState: INITIAL_STATE,
+  initialState: INITIAL_STATE as carrosProps[],
   reducers: {
+    viewCar: (state, action: PayloadAction<carrosProps>) => {
+      return [...state, action.payload];
+    },
   }
 })
 
-export default carrosSlice.reducer
+export const { viewCar } = carrosSlice.actions;
+export default carrosSlice.reducer;
 
-export const useCarros = () => {
-  return INITIAL_STATE as carrosProps[]
-}
+// export const useCarros = () => {
+//   return INITIAL_STATE as carrosProps[]
+// }
