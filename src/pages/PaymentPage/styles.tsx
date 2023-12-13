@@ -4,7 +4,8 @@ import { Theme } from "../../styles/theme";
 
 export const SectionPay = styled.section`
   display: flex;
-  padding: 10px;
+  padding: 20px;
+  justify-content: space-evenly;
   gap: 20px;
   @media (max-width: 768px){
     flex-direction: column-reverse;
