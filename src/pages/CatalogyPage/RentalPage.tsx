@@ -17,7 +17,7 @@ export default function CatalogyPage() {
           <BgRotate>
             <Box>
               <TitleBox>Coloque seu carro para alugar</TitleBox>
-              <Button backgroundColor='cor_azul'>Saiba Mais</Button>
+              <Button backgroundColor='cor_azul' disabled={true}>Saiba Mais</Button>
               <Box>
                 <ImgSrc src={MGZS} alt='carro'></ImgSrc>
               </Box>
@@ -26,7 +26,7 @@ export default function CatalogyPage() {
           <BgExp>
             <Box>
               <TitleBox>Compre um carro novo ou usado agora mesmo</TitleBox>
-              <Button backgroundColor='cor_azul_200'>Saiba Mais</Button>
+              <Button backgroundColor='cor_azul_200' disabled={true}>Saiba Mais</Button>
               <Box>
                 <ImgSrc src={Cronos} alt='carro'></ImgSrc>
               </Box>

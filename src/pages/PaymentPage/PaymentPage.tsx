@@ -4,6 +4,7 @@ import { HeroPage } from '../Homepage/styles';
 import Form from '../../components/Form/Form';
 import { SectionPay } from './styles';
 import Summary from '../../components/Summary/Summary';
+import Footer from '../../components/Footer/Footer';
 
 export default function PaymentPage() {
   return (
@@ -15,6 +16,7 @@ export default function PaymentPage() {
           <Summary />
         </SectionPay>
       </HeroPage>
+      <Footer />
     </div>
   )
 }

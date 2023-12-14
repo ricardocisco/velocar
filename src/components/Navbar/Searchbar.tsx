@@ -6,6 +6,7 @@ import { Theme } from "../../styles/theme";
 import { FaBars, FaHeart, FaBell } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
+import Busca from "../Busca/Busca";
 
 interface ListaUlProps {
   children: React.ReactNode;
@@ -44,12 +45,6 @@ const SearchBox = styled.div`
   border-radius: 30px;
 `;
 
-const Search = styled.input`
-  outline: none;
-  border: none;
-  width: 100%;
-  height: 100%;
-`;
 const Lista = styled.li`
   list-style: none;
   padding: 5px;
@@ -109,13 +104,8 @@ export default function Navbar() {
       <ListaUl active={active}>
         <Lista>
           <SearchBox>
-            <Search placeholder="Pesquisar" />
+            <Busca />
           </SearchBox>
-        </Lista>
-        <Lista>
-          <LinkA to="/">
-            Dashboard
-          </LinkA>
         </Lista>
         <Lista>
           <LinkA to="/">

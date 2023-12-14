@@ -128,4 +128,8 @@ export const RadioInput = styled.div`
       
     }
   }
+  @media (max-width: 430px){
+    font-size: ${Theme.font.sizes.zsmall};
+    padding: 10px;
+  }
 `

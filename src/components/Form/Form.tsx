@@ -4,6 +4,7 @@ import { CardStyle, DivForm, FormBox, InputStyled, LabelStyled, Message, TitleBo
 import bandeiras from '../../images/image_catalogo/cartao.png';
 import nubank from '../../images/image_catalogo/nubank.png';
 import c6bank from '../../images/image_catalogo/c6bank.png';
+import { InputButton } from './styles';
 
 export default function Form() {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -134,7 +135,7 @@ export default function Form() {
             <CardStyle src={c6bank} alt="logo c6bank" />
           </RadioInput>
         </DivForm>
-        <input type="submit" />
+        <InputButton type='submit' />
       </form>
     </Container>
   )
