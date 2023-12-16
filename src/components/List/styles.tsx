@@ -9,6 +9,9 @@ export const CarList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media (max-width: 430px) {
+  
+  }
 `
 
 export const List = styled.div`
@@ -21,6 +24,9 @@ export const List = styled.div`
   margin: 15px;
   box-shadow: ${Theme.box.shadow};
   border-radius: 5px;
+  @media (max-width: 430px) {
+    width: 100%;
+}
 `
 export const BoxList = styled.div`
   display: flex;
@@ -47,6 +53,9 @@ export const BoxFav = styled.div`
 `
 
 export const ImgCar = styled.img`
+@media (max-width: 430px) {
+    width: 100%;
+}
 `
 
 export const BoxBt = styled.div`
