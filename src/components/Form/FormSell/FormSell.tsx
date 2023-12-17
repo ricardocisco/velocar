@@ -7,7 +7,7 @@ import { BoxImg, ImgStyled, InputImg } from './styles';
 
 interface FormsProps {
   titulo: string
-  foto: string | null
+  foto: string
   favorito: boolean
   preco: number
   id: string
@@ -73,7 +73,8 @@ export default function FormSell() {
               <LabelStyled>Categoria</LabelStyled>
               <InputStyled {...register("categoria", { required: "Campo Obrigatório" })} placeholder='Categoria'></InputStyled>
               <Message>{errors.categoria?.message}</Message>
-
+            </div>
+            <div>
               <LabelStyled>Valor</LabelStyled>
               <InputStyled {...register("preco", { required: "Campo Obrigatório " })} placeholder='Valor do Aluguel/Venda'></InputStyled>
               <Message>{errors.preco?.message}</Message>

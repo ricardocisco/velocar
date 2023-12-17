@@ -5,6 +5,14 @@ import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { RootState } from '../../redux/store';
 import { BoxBt, BoxFav, BoxList, CarList, DivBox, ImgCar, List, PBox, PriceP, StyledLink, TBox } from './styles';
 
+interface carrosProps {
+  titulo: string
+  foto: string
+  favorito: boolean
+  preco: number
+  id: string
+  categoria: string
+}
 
 export const ListCar: React.FC = () => {
 
@@ -14,17 +22,18 @@ export const ListCar: React.FC = () => {
   const dispatch = useDispatch();
   const carros = useSelector((state: RootState) => state.carros);
 
-  const handleViewCar = (carro: any) => {
+  const handleViewCar = (carro: carrosProps) => {
     dispatch(viewCar(carro));
-  }
 
+    console.log(handleViewCar)
+  }
 
   return (
 
     <DivBox>
       <p>Carros Populares</p>
       <CarList>
-        {carros.map(carro => <List>
+        {carros.map(carro => <List key={carro.id}>
           <BoxList>
             <div>
               <TBox>{carro.titulo}</TBox>
