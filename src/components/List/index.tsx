@@ -24,7 +24,7 @@ export const ListCar: React.FC = () => {
     <DivBox>
       <p>Carros Populares</p>
       <CarList>
-        {carros.map(carro => <List key={carro.id}>
+        {carros.map(carro => <List>
           <BoxList>
             <div>
               <TBox>{carro.titulo}</TBox>
@@ -39,7 +39,7 @@ export const ListCar: React.FC = () => {
           </BoxList>
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
           <BoxBt>
-            <PriceP>R${carro.preco.toFixed(2)}/dia</PriceP>
+            <PriceP>R${carro.preco}/dia</PriceP>
             <StyledLink to={`/pagamento/${carro.id}`} onClick={() => handleViewCar(carro)}>Alugar</StyledLink>
           </BoxBt>
         </List>)}

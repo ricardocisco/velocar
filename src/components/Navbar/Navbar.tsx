@@ -77,7 +77,7 @@ export default function Navbar() {
       </Icon>
       <ListaUl active={active}>
         <Lista>
-          <LinkA to="/">Coloque para alugar</LinkA>
+          <LinkA to="/vender">Coloque para alugar</LinkA>
         </Lista>
         <Lista>
           <LinkA to="/aluguel">Aluguel</LinkA>
