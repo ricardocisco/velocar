@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addCar } from '../../../redux/reducers/itens';
 import { BoxImg, ImgStyled, InputImg } from './styles';
+import { v4 as uuid } from 'uuid';
 
 interface FormsProps {
   titulo: string
@@ -22,18 +23,6 @@ interface FormsProps {
 
 export default function FormSell() {
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-
-    if (file) {
-      // Cria uma URL temporária para a imagem selecionada
-      const imageUrl = URL.createObjectURL(file);
-      setSelectedImage(imageUrl);
-    }
-  };
-
   const dispatch = useDispatch();
   const onSubmit = (data: FormsProps) => {
     dispatch(addCar(data))
@@ -41,11 +30,16 @@ export default function FormSell() {
     console.log(data)
   }
 
+  const idA = uuid()
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormsProps>({
     defaultValues: {
-      titulo: '',
-      categoria: '',
+      titulo: "",
+      foto: "",
+      favorito: false,
       preco: 0,
+      id: idA,
+      categoria: "",
       fullName: '',
       rg: '',
       cpf: '',
@@ -76,12 +70,12 @@ export default function FormSell() {
             </div>
             <div>
               <LabelStyled>Valor</LabelStyled>
-              <InputStyled {...register("preco", { required: "Campo Obrigatório " })} placeholder='Valor do Aluguel/Venda'></InputStyled>
+              <InputStyled {...register("preco", { required: "Campo Obrigatório ", valueAsNumber: true })} placeholder='Valor do Aluguel/Venda'></InputStyled>
               <Message>{errors.preco?.message}</Message>
             </div>
           </FormBox>
         </DivForm>
-        <DivForm>
+        {/* <DivForm>
           <TitleBox>
             <h1>Informações do Vendedor</h1>
             <p>Passo 2 de 4</p>
@@ -117,22 +111,23 @@ export default function FormSell() {
               <InputStyled type='file'></InputStyled>
             </div>
           </FormBox>
-        </DivForm>
+        </DivForm> */}
         <DivForm>
           <TitleBox>
             <h1>Foto + Informações do Veiculo</h1>
             <p>Passo 3 de 4</p>
           </TitleBox>
           <BoxImg>
-            <div>
-              {selectedImage && (
+            {/* <div>
+              {imageUrl && (
                 <div>
                   <h2>Imagem Selecionada</h2>
-                  <ImgStyled src={selectedImage} alt="Imagem selecionada" />
+                  <ImgStyled src={imageUrl} alt="Imagem selecionada" />
                 </div>
               )}
-              <InputImg type="file" accept='image/*' onChange={handleFileChange} />
-            </div>
+              <label htmlFor='imageUrl'>Image Url:</label>
+              <InputImg {...register("foto")} type="url" accept='image/*' />
+            </div> */}
             <RadioInput>
               <div>
                 <input type='checkbox'></input>

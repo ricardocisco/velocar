@@ -48,7 +48,7 @@ export const ListCar: React.FC = () => {
           </BoxList>
           <ImgCar src={carro.foto} alt='foto carro'></ImgCar>
           <BoxBt>
-            <PriceP>R${carro.preco}/dia</PriceP>
+            <PriceP>R${carro.preco.toFixed(2)}/dia</PriceP>
             <StyledLink to={`/pagamento/${carro.id}`} onClick={() => handleViewCar(carro)}>Alugar</StyledLink>
           </BoxBt>
         </List>)}
