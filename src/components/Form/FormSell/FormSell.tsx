@@ -1,10 +1,13 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { useState } from 'react'
 import { Container, DivForm, FormBox, InputStyled, LabelStyled, Message, RadioInput, TitleBox } from '../../../pages/SellPage/styles';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addCar } from '../../../redux/reducers/itens';
 import { BoxImg, ImgStyled, InputImg } from './styles';
 import { v4 as uuid } from 'uuid';
+import Button from '../../Button/Button';
+import Loading from '../../Loading/Loading';
+import Sent from '../../Sent/Sent';
 
 interface FormsProps {
   titulo: string
@@ -23,16 +26,32 @@ interface FormsProps {
 
 export default function FormSell() {
 
+
+  const [showSent, setShowSent] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
   const dispatch = useDispatch();
-  const onSubmit = (data: FormsProps) => {
-    dispatch(addCar(data))
+  
+  const onSubmit = async (data: FormsProps) => {
+    try {
 
-    console.log(data)
-  }
+      setShowLoading(true)
+      await new Promise((resolve) => setTimeout(resolve, 2000))
+      dispatch(addCar(data))
+      setShowLoading(false)
+      reset();
+      setShowSent(true);
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      setShowSent(false);
+      
 
+    }catch(error) {
+      console.log('Erro no envio do formulario', error)
+    }
+  };
+  
   const idA = uuid()
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormsProps>({
+  const { register, handleSubmit, reset ,formState: { errors } } = useForm<FormsProps>({
     defaultValues: {
       titulo: "",
       foto: "",
@@ -40,15 +59,16 @@ export default function FormSell() {
       preco: 0,
       id: idA,
       categoria: "",
-      fullName: '',
-      rg: '',
-      cpf: '',
-      email: '',
-      telefone: '',
+      // fullName: '',
+      // rg: '',
+      // cpf: '',
+      // email: '',
+      // telefone: '',
     }
   });
 
-  console.log(errors)
+
+  
 
   return (
     <Container>
@@ -75,7 +95,7 @@ export default function FormSell() {
             </div>
           </FormBox>
         </DivForm>
-        {/* <DivForm>
+        <DivForm>
           <TitleBox>
             <h1>Informações do Vendedor</h1>
             <p>Passo 2 de 4</p>
@@ -111,23 +131,17 @@ export default function FormSell() {
               <InputStyled type='file'></InputStyled>
             </div>
           </FormBox>
-        </DivForm> */}
+        </DivForm>
         <DivForm>
           <TitleBox>
             <h1>Foto + Informações do Veiculo</h1>
             <p>Passo 3 de 4</p>
           </TitleBox>
           <BoxImg>
-            {/* <div>
-              {imageUrl && (
-                <div>
-                  <h2>Imagem Selecionada</h2>
-                  <ImgStyled src={imageUrl} alt="Imagem selecionada" />
-                </div>
-              )}
-              <label htmlFor='imageUrl'>Image Url:</label>
+            <div>
+              <label>Image Url:</label>
               <InputImg {...register("foto")} type="url" accept='image/*' />
-            </div> */}
+            </div>
             <RadioInput>
               <div>
                 <input type='checkbox'></input>
@@ -142,8 +156,10 @@ export default function FormSell() {
             </RadioInput>
           </BoxImg>
         </DivForm>
-        <button type='submit'>Enviar</button>
+        <Button backgroundColor='cor_azul'>Enviar</Button>
       </form>
+      {showLoading && <Loading/>}
+      {showSent && <Sent/>}
     </Container>
   )
 }

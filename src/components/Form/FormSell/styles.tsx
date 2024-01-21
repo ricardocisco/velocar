@@ -12,6 +12,7 @@ export const InputImg = styled.input`
   border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
+  margin-left: 10px;
   cursor: pointer;
 `
 

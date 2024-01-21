@@ -5,10 +5,11 @@ export type ButtonProps = {
   children?: React.ReactNode;
   backgroundColor?: "cor_azul_200" | "cor_azul";
   disabled?: boolean
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export default function Button({ children, backgroundColor, disabled }: ButtonProps) {
+export default function Button({ children, backgroundColor, disabled, onClick }: ButtonProps) {
   return (
-    <S.Container backgroundColor={backgroundColor} disabled={disabled}>{children}</S.Container>
+    <S.Container onClick={onClick} backgroundColor={backgroundColor} disabled={disabled}>{children}</S.Container>
   )
 }

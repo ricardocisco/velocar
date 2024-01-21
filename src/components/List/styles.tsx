@@ -19,7 +19,7 @@ export const List = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 305px;
-  height: 280px;
+  height: 305px;
   padding: 15px;
   margin: 15px;
   box-shadow: ${Theme.box.shadow};
@@ -54,11 +54,12 @@ export const BoxFav = styled.div`
 
 export const ImgCar = styled.img`
 @media (max-width: 430px) {
-    width: 100%;
+  width: 100%;
 }
 `
 
 export const BoxBt = styled.div`
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -125,7 +125,7 @@ export const RadioInput = styled.div`
     display: flex;
     align-items: center;
     & input {
-      
+      margin-right: 10px;
     }
   }
   @media (max-width: 430px){
