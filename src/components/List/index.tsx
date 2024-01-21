@@ -19,13 +19,14 @@ export const ListCar: React.FC = () => {
   const IconProps = {
     size: '22',
   }
-  const dispatch = useDispatch();
+  const buscar = useSelector((state: RootState) => state.busca.buscaTerm);
   const carros = useSelector((state: RootState) => state.carros);
+  const dispatch = useDispatch();
+
+  const filterCar = carros.filter((carro) => carro.titulo.toLowerCase().includes(buscar.toLowerCase()))
 
   const handleViewCar = (carro: carrosProps) => {
     dispatch(viewCar(carro));
-
-    console.log(handleViewCar)
   }
 
   return (
@@ -33,7 +34,7 @@ export const ListCar: React.FC = () => {
     <DivBox>
       <p>Carros Populares</p>
       <CarList>
-        {carros.map(carro => <List key={carro.id}>
+        {filterCar.map(carro => <List key={carro.id}>
           <BoxList>
             <div>
               <TBox>{carro.titulo}</TBox>

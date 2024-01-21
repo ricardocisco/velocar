@@ -20,8 +20,6 @@ export default function Busca() {
     const newSearch = e.target.value;
 
     dispatch(mudarBusca(newSearch))
-
-    console.log(newSearch)
   }
 
   return (
