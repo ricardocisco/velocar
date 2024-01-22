@@ -89,7 +89,7 @@ export default function Navbar() {
           <LinkA to="/">Sobre nós</LinkA>
         </Lista>
         <Lista>
-          <LinkA to="/">Login</LinkA>
+          <LinkA to="/login">Login</LinkA>
         </Lista>
       </ListaUl>
     </Nav>
