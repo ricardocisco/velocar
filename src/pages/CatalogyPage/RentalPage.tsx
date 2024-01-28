@@ -7,11 +7,18 @@ import Button from '../../components/Button/Button';
 import Cronos from '../../images/image_catalogo/car7.png'
 import MGZS from '../../images/image_catalogo/car8.png'
 import Footer from '../../components/Footer/Footer';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../services/firebaseConfig';
+import { Navigate } from 'react-router-dom';
 
 export default function CatalogyPage() {
+
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <div>
       <Searchbar />
+      {user ? "" : <Navigate to="/"/>}
       <HeroPage>
         <Section>
           <BgRotate>

@@ -5,6 +5,7 @@ import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import SellPage from "./pages/SellPage/SellPage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
+import ResetPassword from "./pages/Login/ResetPassword";
 
 
 const AppRoutes = () => {
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/vender" element={<SellPage />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/registrar" element={<Register />}/>
+        <Route path="/resetPassword" element={<ResetPassword/>}></Route>
       </Routes>
     </Router>
   )

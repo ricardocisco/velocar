@@ -16,7 +16,8 @@ export const BoxInput = styled.form`
   flex-direction: column;
   box-shadow: ${Theme.box.shadow};
   border-radius: ${Theme.border.radius};
-  height: 360px;
+  padding: 10px;
+  height: 370px;
   width: 400px;
   @media (max-width: 430px){
     width: 90%;

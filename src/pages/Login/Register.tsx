@@ -9,6 +9,8 @@ export default function Register() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [mensagem, setMensagem] = useState('');
   const [
     createUserWithEmailAndPassword,
     user,
@@ -16,13 +18,19 @@ export default function Register() {
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
 
-  function handleSignOut() {
-    createUserWithEmailAndPassword(email, password)
+  const handleSignOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if(confirmPassword !== password){
+      setMensagem("Senha não confere!");
+      return;
+    }
+    try{
+      await createUserWithEmailAndPassword(email, password)
+    }catch{
+      setMensagem("Erro ao criar uma conta");
+    }
   }
 
-  if(loading){
-    return <p>carregando..</p>
-  }
   
   return (
     <BoxLogin>
@@ -34,35 +42,40 @@ export default function Register() {
           </LinkBox>
           <TitleInput>Registre-se</TitleInput>
           <DivInput>
-            <LabelInput htmlFor='email'>Email</LabelInput>
+            <LabelInput htmlFor="email">Email</LabelInput>
             <InputStyle
-            placeholder='Email'
-            type='text'
+            placeholder="Email"
+            type="text"
             name="email"
             id="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             />
           </DivInput>
-          {/* <DivInput>
-            <LabelInput>Confirme o email</LabelInput>
-            <InputStyle
-            placeholder='Email'
-            type='text'
-            name="email"
-            id="email"
-            />
-          </DivInput> */}
           <DivInput>
             <LabelInput htmlFor='password'>Senha</LabelInput>
             <InputStyle
-            placeholder='Senha'
-            type='password'
+            placeholder="Senha"
+            type="password"
             name="password"
             id="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
           </DivInput>
-          <Button backgroundColor='cor_azul' onClick={() => handleSignOut()}>Registrar</Button>
+          <DivInput>
+            <LabelInput>Confirme a senha</LabelInput>
+            <InputStyle
+            placeholder="Confirme a senha"
+            type="password"
+            name="password"
+            id="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </DivInput>
+          {mensagem}
+          <Button backgroundColor='cor_azul' onClick={handleSignOut}>Registrar</Button>
           <LinkBox>
             <TextStyle>Já tem uma conta? <LinkStyle to="/login">Entrar</LinkStyle></TextStyle>
           </LinkBox>  

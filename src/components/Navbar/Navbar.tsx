@@ -1,71 +1,21 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import Logo from '../../images/image_catalogo/logo.png'
-import { Theme } from '../../styles/theme'
 import { FaBars } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../services/firebaseConfig'
+import { Icon, ImgLogo, LinkA, Lista, ListaUl, Nav, PTitle } from './Styles'
+import { signOut } from 'firebase/auth'
 
-interface ListaUlProps {
-  children: React.ReactNode
-  active: boolean
-}
-
-const Nav = styled.nav`
-    width:  1400px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    @media (max-width: 1400px){
-        width: 100%;
-    }
-    @media (max-width: 700px){
-        flex-direction: column;
-    }
-`
-const ListaUl: React.FC<ListaUlProps> = styled.ul`
-    display: flex;
-    align-items: center;
-    @media (max-width: 700px){
-        display: ${props => props.active ? 'block' : 'none'};
-        flex-direction: column;
-    }
-`
-
-const Lista = styled.li`
-    list-style: none;
-    padding: 5px;
-`
-
-const LinkA = styled(Link)`
-    font-size: ${Theme.font.sizes.xxxsmall};
-    font-weight: ${Theme.font.bold};
-    text-decoration: none;
-    cursor: pointer;
-    &:hover {
-      color: ${Theme.colors.cor_cinza};
-    }
-`
-
-const ImgLogo = styled.img`
-    width: 120px;
-`
-const Icon = styled.i`
-    display: none;
-    @media (max-width: 700px){
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: ${Theme.font.sizes.xsmall};
-        cursor: pointer;
-    }
-`
 
 export default function Navbar() {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
+
+  const [user] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+  }
 
   return (
     <Nav>
@@ -77,10 +27,10 @@ export default function Navbar() {
       </Icon>
       <ListaUl active={active}>
         <Lista>
-          <LinkA to="/vender">Coloque para alugar</LinkA>
+          {user ? <LinkA to="/vender">Coloque para alugar</LinkA> : ""}
         </Lista>
         <Lista>
-          <LinkA to="/aluguel">Aluguel</LinkA>
+          {user ? <LinkA to="/aluguel">Aluguel</LinkA> : ""}
         </Lista>
         <Lista>
           <LinkA to="/">Como Funciona</LinkA>
@@ -89,7 +39,7 @@ export default function Navbar() {
           <LinkA to="/">Sobre nós</LinkA>
         </Lista>
         <Lista>
-          <LinkA to="/login">Login</LinkA>
+          {user ? <PTitle onClick={logout}>Logout</PTitle> : <LinkA to="/login">Login</LinkA>}
         </Lista>
       </ListaUl>
     </Nav>

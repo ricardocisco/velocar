@@ -11,4 +11,7 @@ export const Container = styled.button<ContainerProps>`
     color: ${Theme.colors.cor_branca};
     padding: 0.6rem 2rem;
     cursor: pointer;
+    &:disabled {
+      background-color: ${Theme.colors.cor_azul_200};
+    }
 `
