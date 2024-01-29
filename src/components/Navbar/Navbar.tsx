@@ -33,7 +33,7 @@ export default function Navbar() {
           {user ? <LinkA to="/aluguel">Aluguel</LinkA> : ""}
         </Lista>
         <Lista>
-          <LinkA to="/">Como Funciona</LinkA>
+          <LinkA to="/comoFunciona">Como Funciona</LinkA>
         </Lista>
         <Lista>
           <LinkA to="/">Sobre nós</LinkA>
