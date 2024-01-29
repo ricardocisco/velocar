@@ -36,7 +36,7 @@ export default function Navbar() {
           <LinkA to="/comoFunciona">Como Funciona</LinkA>
         </Lista>
         <Lista>
-          <LinkA to="/">Sobre nós</LinkA>
+          <LinkA to="/sobre">Sobre nós</LinkA>
         </Lista>
         <Lista>
           {user ? <PTitle onClick={logout}>Logout</PTitle> : <LinkA to="/login">Login</LinkA>}

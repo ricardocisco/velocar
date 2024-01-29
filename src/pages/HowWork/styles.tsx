@@ -5,13 +5,20 @@ export const HowBox = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 1440px;
+  margin: 0 auto;
   padding: 100px;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1440px){
+    width: 100%;
+    padding: 50px;
+  }
 `
 
 export const HowMain = styled.main`
+  display: flex;
+  flex-direction: column;
   border-radius: ${Theme.border.radius};
   box-shadow: ${Theme.box.shadow};
   padding: 20px;

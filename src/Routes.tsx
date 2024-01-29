@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import ResetPassword from "./pages/Login/ResetPassword";
 import HowWork from "./pages/HowWork/HowWork";
+import Sobre from "./pages/Sobre/Sobre";
 
 
 const AppRoutes = () => {
@@ -21,6 +22,7 @@ const AppRoutes = () => {
         <Route path="/registrar" element={<Register />}/>
         <Route path="/resetPassword" element={<ResetPassword/>}></Route>
         <Route path="/comoFunciona" element={<HowWork/>}/>
+        <Route path="/sobre" element={<Sobre/>}/>
       </Routes>
     </Router>
   )
