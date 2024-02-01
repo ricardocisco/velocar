@@ -23,6 +23,7 @@ export const SobreList = styled.div`
     font-size: ${Theme.font.sizes.xsmall};
   }
   @media (max-width: 1400px){
+    padding: 0 20px 0 20px;
     width: 100%;
     flex-direction: column;
   }
